@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/18 15:43:28 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:35:49 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../Libdraw/libdraw.h"
 # include "X.h"
 
-typedef struct	s_mend
+typedef struct	s_mand
 {
 	int			**tab;
 	int			x;
@@ -27,17 +27,19 @@ typedef struct	s_mend
 	int			cy;
 	int			l;
 	int			nmax;
-}				t_mend;
+}				t_mand;
 
 typedef struct	s_fract
 {
 	t_mlx		*mlx;
 	char		*title;
-	t_mend		*mend;
+	t_pt		size;
 }				t_fract;
 
 t_fract			*ft_fract_init(t_fract *fract, char *str);
 void			ft_choose_fract(t_fract *fract);
 void			ft_mandelbrot(t_fract *fract);
+t_mand			*ft_mand_init(t_mand *mand);
+t_fract			*ft_free_fract(t_fract *fract);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 15:22:10 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/18 15:48:12 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:26:58 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,12 @@ void	ft_choose_fract(t_fract *fract)
 {
 	if (!ft_strcmp(fract->title, "Mandelbrot"))
 		ft_mandelbrot(fract);
+//	else if (!ft_strcmp(fract->title, "Julia"))
+//		ft_julia(fract);
+	{
+		ft_putstr("usage: ./Fractol Mandelbrot\n");
+		ft_putstr("       ./Fractol Julia\n");
+		ft_putstr("       ./Fractol (le dernier putin de fractal au choix)\n");
+	}
+	fract = ft_free_fract(fract);
 }
