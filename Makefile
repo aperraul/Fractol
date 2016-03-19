@@ -6,11 +6,11 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 16:10:30 by aperraul          #+#    #+#              #
-#    Updated: 2016/03/18 16:35:06 by aperraul         ###   ########.fr        #
+#    Updated: 2016/03/18 16:40:12 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fractol
+NAME = fractol
 
 SRC = ./sources/main.c \
 	  ./sources/ft_fract_init.c \

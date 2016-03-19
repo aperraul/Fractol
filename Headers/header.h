@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/18 16:35:49 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/19 12:37:28 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define HEADER_H
 
 # include "../libft/libft.h"
-# include "../minilibx/mlx.h"
 # include "../Libdraw/libdraw.h"
-# include "X.h"
+# include "../libmlx/X.h"
 
 typedef struct	s_mand
 {

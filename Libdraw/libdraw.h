@@ -6,14 +6,14 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/18 14:18:04 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/19 12:38:10 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBDRAW_H
 # define LIBDRAW_H
 
-# include "../minilibx/mlx.h"
+# include "../libmlx/mlx.h"
 # include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
