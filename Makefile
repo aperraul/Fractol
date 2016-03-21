@@ -6,7 +6,7 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 16:10:30 by aperraul          #+#    #+#              #
-#    Updated: 2016/03/19 17:08:57 by aperraul         ###   ########.fr        #
+#    Updated: 2016/03/21 12:46:35 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ NAME = fractol
 SRC = ./sources/main.c \
 	  ./sources/ft_fract_init.c \
 	  ./sources/choose_fract.c \
+	  ./sources/ft_pre_mandelbrot.c \
 	  ./sources/ft_mandelbrot.c \
-	  ./sources/ft_do_mandelbrot.c \
 
 OBJS = ./main.o \
 	   ./ft_fract_init.o \
 	   ./choose_fract.o \
+	   ./ft_pre_mandelbrot.o \
 	   ./ft_mandelbrot.o \
-	   ./ft_do_mandelbrot.o \
 
 DRAW = ./Libdraw/draw.a
 

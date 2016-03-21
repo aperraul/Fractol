@@ -5,33 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/19 16:36:08 by aperraul         ###   ########.fr       */
+/*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
+/*   Updated: 2016/03/21 17:18:35 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
 
-t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
+t_mand	*ft_mand_img(t_mand *mand)
 {
-	mand = (t_mand *)ft_memalloc(sizeof(t_mand));
-	mand->x1 = -2.6;
-	mand->y1 = -1.2;
-	mand->x2 = 0.6;
-	mand->y2 = 1.2;
-	mand->nmax = 50;
-	mand->zoom = 100;
+	mand->image_x = (mand->x2 - mand->x1) * mand->zoom;
+	mand->image_y = (mand->y2 - mand->y1) * mand->zoom;
 	return (mand);
 }
 
-void	ft_mandelbrot(t_fract *fract)
-{
-	t_mand	*mand;
-	t_mlx	*mlx;
+void	ft_mandelbrot(t_mlx *mlx, t_mand *mand)
+{	int		x;
+	int		y;
+	int		i;
+	double	tmp;
 
-	mlx = NULL;
-	mand = NULL;
-	mlx = ft_mlx_init(mlx, fract->size.x, fract->size.y, fract->title);
-	mand = ft_mand_init(mand, fract);
-	ft_do_mandelbrot(mlx, mand);
+	mand = ft_mand_img(mand);
+	x = -1;
+	while (++x < mand->image_x)
+	{
+		y = -1;
+		while (++y < mand->image_y)
+		{
+			mand->c_r = (float)((float)x / (float)mand->zoom) + mand->x1;
+			mand->c_i = (float)((float)y / (float)mand->zoom) + mand->y1;
+			mand->z_r = 0;
+			mand->z_i = 0;
+			i = -1;
+			while ((mand->z_r * mand->z_r) + (mand->z_i * mand->z_i) < 4 &&
+					++i < mand->nmax)
+			{
+				tmp = mand->z_r;
+				mand->z_r = (mand->z_r * mand->z_r) - (mand->z_i * mand->z_i)
+					+ mand->c_r;
+				mand->z_i = (2 * mand->z_i * tmp) + mand->c_i;
+			}
+			if (i == mand->nmax)
+				ft_draw_pixel(mlx, 0xFFFFFF, ft_make_pt(x, y));
+			else
+				ft_draw_pixel(mlx, 0x136576, ft_make_pt(x, y));
+		}
+	}
+	ft_flush_img(mlx);
+	mlx_loop(mlx);
 }

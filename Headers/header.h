@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/19 17:08:25 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/21 16:38:50 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_mand
 	double		c_i;
 	double		z_r;
 	double		z_i;
+	t_pt		size;
 }				t_mand;
 
 typedef struct	s_fract
@@ -42,8 +43,8 @@ typedef struct	s_fract
 
 t_fract			*ft_fract_init(t_fract *fract, char *str);
 void			ft_choose_fract(t_fract *fract);
-void			ft_mandelbrot(t_fract *fract);
-void			ft_do_mandelbrot(t_mlx *mlx, t_mand *fract);
+void			ft_pre_mandelbrot(t_fract *fract);
+void			ft_mandelbrot(t_mlx *mlx, t_mand *fract);
 t_mand			*ft_mand_init(t_mand *mand, t_fract *fract);
 t_fract			*ft_free_fract(t_fract *fract);
 
