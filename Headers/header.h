@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/21 16:38:50 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/23 12:48:29 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef struct	s_mand
 {
+	int			*color_tab;
 	double		x1;
 	double		y1;
 	double		x2;

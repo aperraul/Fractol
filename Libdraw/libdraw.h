@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/19 12:38:10 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/23 12:14:16 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
+
+typedef struct	s_rgb
+{
+	int			r;
+	int			g;
+	int			b;
+}				t_rgb;
 
 typedef struct	s_line
 {
@@ -96,5 +103,7 @@ void			ft_draw_circle(t_mlx *mlx, t_pt center, int size, int color);
 void			ft_clear_mlx(t_mlx *mlx);
 void			ft_flush_img(t_mlx *x);
 void			ft_reset_img(t_mlx *mlx, int color);
+t_rgb			ft_hexa_to_rgb(int hexa);
+int				ft_rgb_to_hexa(t_rgb rgb);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/21 17:18:35 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/23 12:57:19 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 t_mand	*ft_mand_img(t_mand *mand)
 {
+	int		hexmin;
+	int		i;
+
 	mand->image_x = (mand->x2 - mand->x1) * mand->zoom;
 	mand->image_y = (mand->y2 - mand->y1) * mand->zoom;
+	mand->color_tab = (int *)ft_memalloc(sizeof(int) * mand->nmax);
+	hexmin = (0x739566 / mand->nmax);
+	i = -1;
+	while (++i < mand->nmax)
+		mand->color_tab[i] = hexmin + (hexmin * i);
 	return (mand);
 }
 
@@ -25,6 +33,7 @@ void	ft_mandelbrot(t_mlx *mlx, t_mand *mand)
 	int		i;
 	double	tmp;
 
+	//ft_nmax_mod();
 	mand = ft_mand_img(mand);
 	x = -1;
 	while (++x < mand->image_x)
@@ -48,7 +57,7 @@ void	ft_mandelbrot(t_mlx *mlx, t_mand *mand)
 			if (i == mand->nmax)
 				ft_draw_pixel(mlx, 0xFFFFFF, ft_make_pt(x, y));
 			else
-				ft_draw_pixel(mlx, 0x136576, ft_make_pt(x, y));
+				ft_draw_pixel(mlx, 0x000000, ft_make_pt(x, y));
 		}
 	}
 	ft_flush_img(mlx);
