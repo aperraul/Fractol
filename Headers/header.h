@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/23 12:48:29 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/23 15:23:22 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 typedef struct	s_mand
 {
+	t_mlx		*mlx;
+	int			key;
 	int			*color_tab;
 	double		x1;
 	double		y1;
@@ -45,8 +47,10 @@ typedef struct	s_fract
 t_fract			*ft_fract_init(t_fract *fract, char *str);
 void			ft_choose_fract(t_fract *fract);
 void			ft_pre_mandelbrot(t_fract *fract);
-void			ft_mandelbrot(t_mlx *mlx, t_mand *fract);
+void			ft_mandelbrot(t_mand *fract);
 t_mand			*ft_mand_init(t_mand *mand, t_fract *fract);
 t_fract			*ft_free_fract(t_fract *fract);
+int				ft_mand_event(int keycode, t_mand *mand);
+void			ft_zoom_mode(t_mand *mand);
 
 #endif
