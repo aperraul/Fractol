@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 12:53:41 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 15:43:39 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 # include "../libmlx/X.h"
 
 # define WIN_X 1000
-# define WIN_Y 900
+# define WIN_Y WIN_X
 
 typedef struct	s_mand
 {
 	t_mlx		*mlx;
 	int			zoomf;
 	int			key;
+	int			btn;
 	int			*color_tab;
 	double		x1;
 	double		y1;
@@ -53,6 +54,7 @@ void			ft_mandelbrot(t_mand *fract);
 t_mand			*ft_mand_init(t_mand *mand, t_fract *fract);
 t_fract			*ft_free_fract(t_fract *fract);
 int				ft_mand_event(int keycode, t_mand *mand);
+int				ft_mandel_mouse(int btn, int x, int y, t_mand *mand);
 void			ft_zoom_mode(t_mand *mand);
 
 #endif

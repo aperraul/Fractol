@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 13:25:11 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 16:35:15 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_mand	*ft_mand_img(t_mand *mand)
 	hexmin = (0xFFFFFF / mand->nmax);
 	mand->pmin.x = 0;
 	mand->pmin.y = 0;
-	mand->pmax.x = mand->image_x - (mand->image_x - WIN_X) / 2;
-	mand->pmax.y = mand->image_y - (mand->image_y - WIN_Y) / 2;
+	mand->pmax.x = mand->image_x - (mand->image_x - WIN_X);
+	mand->pmax.y = mand->image_y - (mand->image_y - WIN_Y);
 	i = -1;
 	while (++i < mand->nmax)
 		mand->color_tab[i] = hexmin + (hexmin * i);

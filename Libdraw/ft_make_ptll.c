@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mand_event.c                                    :+:      :+:    :+:   */
+/*   ft_make_ptll.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 12:58:45 by aperraul         ###   ########.fr       */
+/*   Created: 2016/03/24 16:20:01 by aperraul          #+#    #+#             */
+/*   Updated: 2016/03/24 16:31:28 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Headers/header.h"
+#include "libdraw.h"
 
-void	ft_zoom_mode(t_mand *mand)
+t_ptll	ft_make_ptll(long long x, long long y)
 {
-	if (mand->key == 24 || mand-> key == 27)
-	{
-		if (mand->key == 24)
-		{
-			mand->zoom += 10;
-			mand->zoomf++;
-		}
-		else
-		{
-			if (mand->zoomf > 0)
-			{
-				mand->zoom -= 10;
-				mand->zoomf--;
-			}
-		}
-	}
-}
-
-int		ft_mand_event(int keycode, t_mand *mand)
-{
-	if (keycode == 53)
-		exit(0);
-	mand->key = keycode;
-	ft_mandelbrot(mand);
-	return (0);
+	t_ptll	pt;
+	pt.x = x;
+	pt.y = y;
+	return (pt);
 }

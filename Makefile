@@ -6,7 +6,7 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 16:10:30 by aperraul          #+#    #+#              #
-#    Updated: 2016/03/23 15:25:58 by aperraul         ###   ########.fr        #
+#    Updated: 2016/03/24 17:05:21 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ SRC = ./sources/main.c \
 	  ./sources/choose_fract.c \
 	  ./sources/ft_pre_mandelbrot.c \
 	  ./sources/ft_mandelbrot.c \
-	  ./sources/ft_mand_event.c\
+	  ./sources/mand_event.c\
 
 OBJS = ./main.o \
 	   ./ft_fract_init.o \
 	   ./choose_fract.o \
 	   ./ft_pre_mandelbrot.o \
 	   ./ft_mandelbrot.o \
-	   ./ft_mand_event.o \
+	   ./mand_event.o \
 
 DRAW = ./Libdraw/draw.a
 

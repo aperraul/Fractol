@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/23 12:14:16 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 16:31:04 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
+
+typedef struct	s_ptll
+{
+	long long	x;
+	long long	y;
+}				t_ptll;
 
 typedef struct	s_rgb
 {

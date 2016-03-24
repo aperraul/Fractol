@@ -6,7 +6,7 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/27 15:26:56 by aperraul          #+#    #+#              #
-#    Updated: 2016/03/23 12:17:36 by aperraul         ###   ########.fr        #
+#    Updated: 2016/03/24 16:32:27 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = draw_line.c \
 	   ft_clear_mlx.c \
 	   ft_reset_img.c \
 	   rgb_hexa_convert.c \
+	   ft_make_ptll.c \
 	   draw_flush_img.c
 
 OBJS = draw_line.o \
@@ -46,6 +47,7 @@ OBJS = draw_line.o \
 	   ft_clear_mlx.o \
 	   ft_reset_img.o \
 	   rgb_hexa_convert.o \
+	   ft_make_ptll.o \
 	   draw_flush_img.o
 
 FLAGS = -Wall -Wextra -Werror
