@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 15:34:21 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/18 16:31:07 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 11:16:44 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_fract		*ft_fract_init(t_fract *fract, char *str)
 {
 	fract = (t_fract *)ft_memalloc(sizeof(t_fract));
 	fract->mlx = NULL;
-	fract->size.x = 800;
-	fract->size.y = 800;
+	fract->size.x = WIN_X;
+	fract->size.y = WIN_Y;
 	fract->title = str;
 	return (fract);
 }

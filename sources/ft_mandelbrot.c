@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/23 15:39:16 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 13:25:11 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ t_mand	*ft_mand_img(t_mand *mand)
 	mand->image_x = (mand->x2 - mand->x1) * mand->zoom;
 	mand->image_y = (mand->y2 - mand->y1) * mand->zoom;
 	mand->color_tab = (int *)ft_memalloc(sizeof(int) * mand->nmax);
-	hexmin = (0x739566 / mand->nmax);
+	hexmin = (0xFFFFFF / mand->nmax);
+	mand->pmin.x = 0;
+	mand->pmin.y = 0;
+	mand->pmax.x = mand->image_x - (mand->image_x - WIN_X) / 2;
+	mand->pmax.y = mand->image_y - (mand->image_y - WIN_Y) / 2;
 	i = -1;
 	while (++i < mand->nmax)
 		mand->color_tab[i] = hexmin + (hexmin * i);
@@ -28,31 +32,37 @@ t_mand	*ft_mand_img(t_mand *mand)
 }
 
 void	ft_mandelbrot(t_mand *mand)
-{	int		x;
+{
+	int		x;
 	int		y;
 	int		i;
 	double	tmp;
+	double	c_r;
+	double	c_i;
+	double	z_r;
+	double	z_i;
 
+	ft_reset_img(mand->mlx, 0x000000);
 	ft_zoom_mode(mand);
 	mand = ft_mand_img(mand);
-	x = -1;
-	while (++x < mand->image_x && x < 800)
+	x = mand->pmin.x - 1;
+	while (++x < mand->image_x && x < mand->pmax.x)
 	{
-		y = -1;
-		while (++y < mand->image_y && y < 800)
+		y = mand->pmin.y - 1;
+		while (++y < mand->image_y && y < mand->pmax.y)
 		{
-			mand->c_r = (float)((float)x / (float)mand->zoom) + mand->x1;
-			mand->c_i = (float)((float)y / (float)mand->zoom) + mand->y1;
-			mand->z_r = 0;
-			mand->z_i = 0;
+			c_r = (float)((float)x / (float)mand->zoom) + mand->x1;
+			c_i = (float)((float)y / (float)mand->zoom) + mand->y1;
+			z_r = 0;
+			z_i = 0;
 			i = -1;
-			while ((mand->z_r * mand->z_r) + (mand->z_i * mand->z_i) < 4 &&
+			while ((z_r * z_r) + (z_i * z_i) < 4 &&
 					++i < mand->nmax)
 			{
-				tmp = mand->z_r;
-				mand->z_r = (mand->z_r * mand->z_r) - (mand->z_i * mand->z_i)
-					+ mand->c_r;
-				mand->z_i = (2 * mand->z_i * tmp) + mand->c_i;
+				tmp = z_r;
+				z_r = (z_r * z_r) - (z_i * z_i)
+					+ c_r;
+				z_i = (2 * z_i * tmp) + c_i;
 			}
 			if (i == mand->nmax)
 				ft_draw_pixel(mand->mlx, 0xFFFFFF, ft_make_pt(x, y));

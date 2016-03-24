@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/23 15:23:22 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/24 12:53:41 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@
 # include "../Libdraw/libdraw.h"
 # include "../libmlx/X.h"
 
+# define WIN_X 1000
+# define WIN_Y 900
+
 typedef struct	s_mand
 {
 	t_mlx		*mlx;
+	int			zoomf;
 	int			key;
 	int			*color_tab;
 	double		x1;
@@ -30,11 +34,9 @@ typedef struct	s_mand
 	int			image_y;
 	int			zoom;
 	int			nmax;
-	double		c_r;
-	double		c_i;
-	double		z_r;
-	double		z_i;
 	t_pt		size;
+	t_pt		pmin;
+	t_pt		pmax;
 }				t_mand;
 
 typedef struct	s_fract
