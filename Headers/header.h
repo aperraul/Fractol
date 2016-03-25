@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 15:43:39 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:50:52 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ typedef struct	s_mand
 	double		y2;
 	int			image_x;
 	int			image_y;
-	int			zoom;
+	double			zoom;
 	int			nmax;
-	t_pt		size;
+	double		viewx;
+	double		viewy;
+	t_pt		cursor;
 	t_pt		pmin;
 	t_pt		pmax;
 }				t_mand;
@@ -44,7 +46,6 @@ typedef struct	s_fract
 {
 	t_mlx		*mlx;
 	char		*title;
-	t_pt		size;
 }				t_fract;
 
 t_fract			*ft_fract_init(t_fract *fract, char *str);

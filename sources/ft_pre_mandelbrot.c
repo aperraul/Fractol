@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 17:01:51 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/25 15:43:20 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 	mand->y1 = -1.3;
 	mand->x2 = 0.6;
 	mand->y2 = 1.4;
+	mand->btn = -1;
 	mand->nmax = 40;
+	mand->cursor.x = 0;
+	mand->cursor.y = 0;
 	mand->zoom = WIN_X / (mand->x2 - mand->x1) + 1;
 	mand->color_tab = NULL;
 	mand->zoomf = 0;
+	mand->viewx = 0;
+	mand->viewy = 0;
 	return (mand);
 }
 
@@ -32,7 +37,7 @@ void	ft_pre_mandelbrot(t_fract *fract)
 	t_mand	*mand;
 
 	mand = NULL;
-	fract->mlx = ft_mlx_init(fract->mlx, fract->size.x, fract->size.y, fract->title);
+	fract->mlx = ft_mlx_init(fract->mlx, WIN_X, WIN_Y, fract->title);
 	mand = ft_mand_init(mand, fract);
 	ft_mandelbrot(mand);
 	mlx_hook(fract->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, mand);

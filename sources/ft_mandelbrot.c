@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 16:35:15 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/25 17:35:47 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,25 @@ void	ft_mandelbrot(t_mand *mand)
 	ft_reset_img(mand->mlx, 0x000000);
 	ft_zoom_mode(mand);
 	mand = ft_mand_img(mand);
-	x = mand->pmin.x - 1;
+	x = -1;
 	while (++x < mand->image_x && x < mand->pmax.x)
 	{
-		y = mand->pmin.y - 1;
+		y = -1;
 		while (++y < mand->image_y && y < mand->pmax.y)
 		{
-			c_r = (float)((float)x / (float)mand->zoom) + mand->x1;
-			c_i = (float)((float)y / (float)mand->zoom) + mand->y1;
-			z_r = 0;
-			z_i = 0;
-			i = -1;
+			if	(mand->btn == 1 && mand->cursor.x != 0 && mand->cursor.y != 0)
+			{
+				c_r = (float)((float)mand->cursor.x / (float)mand->zoom) + (mand->x1);
+				c_i = (float)((float)mand->cursor.y / (float)mand->zoom) + (mand->y1);
+				z_r = (float)(float)WIN_X / (float)mand->cursor.x;
+				z_i = (float)(float)WIN_Y / (float)mand->cursor.y;
+			}
+			else
+				c_r = (float)((float)x / (float)mand->zoom) + (mand->x1);
+				c_i = (float)((float)y / (float)mand->zoom) + (mand->y1);
+				z_r = 0;
+				z_i = 0;
+				i = -1;
 			while ((z_r * z_r) + (z_i * z_i) < 4 &&
 					++i < mand->nmax)
 			{
@@ -68,7 +76,9 @@ void	ft_mandelbrot(t_mand *mand)
 				ft_draw_pixel(mand->mlx, 0xFFFFFF, ft_make_pt(x, y));
 			else
 				ft_draw_pixel(mand->mlx, mand->color_tab[i], ft_make_pt(x, y));
+			mand->cursor.y++;
 		}
+		mand->cursor.x++;
 	}
 	ft_flush_img(mand->mlx);
 }
