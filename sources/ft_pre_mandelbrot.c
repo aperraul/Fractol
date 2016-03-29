@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 13:05:47 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/29 17:23:53 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 	mand->pos = ft_make_pt(0, 0);
 	mand->pmin = ft_make_pt(0, 0);
 	mand->pmax = ft_make_pt(0, 0);
+	mand->cursor = ft_make_pt(0, 0);
 	mand->x1 = -2.1;
-	mand->y1 = -1.3;
+	mand->y1 = -1.2;
 	mand->x2 = 0.6;
-	mand->y2 = 1.4;
+	mand->y2 = 1.2;
 	mand->btn = -1;
 	mand->nmax = 40;
-	mand->cursor.x = 0;
-	mand->cursor.y = 0;
-	mand->zoom = WIN_X / (mand->x2 - mand->x1) + 1;
+	mand->zoom = WIN_X / (mand->x2 - mand->x1);
+//	mand->zoom = 410;
 	mand->color_tab = NULL;
 	mand->zoomf = 0;
 	return (mand);

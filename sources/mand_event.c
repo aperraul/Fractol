@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 12:57:33 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/29 17:29:38 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		ft_calc_pos(t_mand *mand)
 
 void	ft_zoom_mode(t_mand *mand)
 {
-	if (mand->key == 24 || mand-> key == 27)
+	if (mand->key == 24 || mand->key == 27)
 	{
 		if (mand->key == 24)
 		{
@@ -29,7 +29,7 @@ void	ft_zoom_mode(t_mand *mand)
 			mand->zoom *= THEZOOM;
 			mand->pos.x *= THEZOOM;
 			mand->pos.y *= THEZOOM;
-			mand->nmax *= ITERATOR;
+			mand->nmax += ITERATOR;
 			mand->zoomf++;
 		}
 		else
@@ -44,7 +44,7 @@ void	ft_zoom_mode(t_mand *mand)
 			mand->zoom /= THEZOOM;
 			mand->pos.x /= THEZOOM;
 			mand->pos.y /= THEZOOM;
-			mand->nmax /= ITERATOR;
+			mand->nmax -= ITERATOR;
 			mand->zoomf--;
 		}
 	}
@@ -60,6 +60,7 @@ int		ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
 		mand->key = 27;
 	ft_mandelbrot(mand);
 	mand->btn = -1;
+	mand->key = -1;
 	return (0);
 }
 

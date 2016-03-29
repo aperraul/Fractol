@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 12:54:44 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/29 17:24:21 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include "../Libdraw/libdraw.h"
 # include "../libmlx/X.h"
 
-# define WIN_X 1000
-# define WIN_Y WIN_X
+# define WIN_X 900
+# define WIN_Y 800
 # define THEZOOM 1.5
-# define ITERATOR 1.12
+# define ITERATOR 2
 
 typedef struct	s_mand
 {
