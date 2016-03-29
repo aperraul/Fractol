@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/25 15:43:20 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/29 13:05:47 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 {
 	mand = (t_mand *)ft_memalloc(sizeof(t_mand));
 	mand->mlx = fract->mlx;
+	mand->pos = ft_make_pt(0, 0);
+	mand->pmin = ft_make_pt(0, 0);
+	mand->pmax = ft_make_pt(0, 0);
 	mand->x1 = -2.1;
 	mand->y1 = -1.3;
 	mand->x2 = 0.6;
@@ -27,8 +30,6 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 	mand->zoom = WIN_X / (mand->x2 - mand->x1) + 1;
 	mand->color_tab = NULL;
 	mand->zoomf = 0;
-	mand->viewx = 0;
-	mand->viewy = 0;
 	return (mand);
 }
 

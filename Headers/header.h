@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/25 16:50:52 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/29 12:54:44 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define WIN_X 1000
 # define WIN_Y WIN_X
+# define THEZOOM 1.5
+# define ITERATOR 1.12
 
 typedef struct	s_mand
 {
@@ -31,12 +33,9 @@ typedef struct	s_mand
 	double		y1;
 	double		x2;
 	double		y2;
-	int			image_x;
-	int			image_y;
-	double			zoom;
+	double		zoom;
 	int			nmax;
-	double		viewx;
-	double		viewy;
+	t_pt		pos;
 	t_pt		cursor;
 	t_pt		pmin;
 	t_pt		pmax;
