@@ -6,11 +6,17 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 17:28:34 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 12:51:36 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
+
+void			ft_free_color_tab(t_mand *mand)
+{
+	if (mand->color_tab)
+		ft_memdel((void **)&mand->color_tab);
+}
 
 static void		ft_image_init(t_mand *mand)
 {
@@ -25,7 +31,7 @@ static void		ft_image_init(t_mand *mand)
 	mand->pmin.y = (image_y - WIN_Y) / 2;
 }
 
-void	ft_mand_color(t_mand *mand)
+static void		ft_mand_color(t_mand *mand)
 {
 	int		hexmin;
 	int		i;
@@ -37,10 +43,8 @@ void	ft_mand_color(t_mand *mand)
 		mand->color_tab[i] = hexmin + (hexmin * i);
 }
 
-void	ft_mandelbrot(t_mand *mand)
+static int		ft_mandel_loops(t_mand *mand, t_pt p, float z)
 {
-	t_pt	index;
-	t_pt	p;
 	int		i;
 	double	tmp;
 	double	c_r;
@@ -48,31 +52,38 @@ void	ft_mandelbrot(t_mand *mand)
 	double	z_r;
 	double	z_i;
 
+	c_r = (float)((float)(p.x + mand->pmin.x + mand->pos.x) / z) + (mand->x1);
+	c_i = (float)((float)(p.y + mand->pmin.y + mand->pos.y) / z) + (mand->y1);
+	z_r = 0;
+	z_i = 0;
+	i = -1;
+	while ((z_r * z_r) + (z_i * z_i) < 4 && ++i < mand->nmax)
+	{
+		tmp = z_r;
+		z_r = (z_r * z_r) - (z_i * z_i) + c_r;
+		z_i = (2 * z_i * tmp) + c_i;
+	}
+	return (i);
+}
+
+void			ft_mandelbrot(t_mand *mand)
+{
+	t_pt	p;
+	int		i;
+
 	ft_reset_img(mand->mlx, 0);
 	ft_zoom_mode(mand);
 	ft_image_init(mand);
 	ft_mand_color(mand);
 	p.x = 0;
-	index.x = mand->pmin.x - 1;
-	while (++index.x < mand->pmax.x)
+	mand->index.x = mand->pmin.x - 1;
+	while (++mand->index.x < mand->pmax.x)
 	{
 		p.y = 0;
-		index.y = mand->pmin.y - 1;
-		while (++index.y < mand->pmax.y)
+		mand->index.y = mand->pmin.y - 1;
+		while (++mand->index.y < mand->pmax.y)
 		{
-			c_r = (float)((float)(p.x + mand->pmin.x + mand->pos.x) / (float)mand->zoom) + (mand->x1);
-			c_i = (float)((float)(p.y + mand->pmin.y + mand->pos.y) / (float)mand->zoom) + (mand->y1);
-			z_r = 0;
-			z_i = 0;
-			i = -1;
-			while ((z_r * z_r) + (z_i * z_i) < 4 &&
-					++i < mand->nmax)
-			{
-				tmp = z_r;
-				z_r = (z_r * z_r) - (z_i * z_i)
-					+ c_r;
-				z_i = (2 * z_i * tmp) + c_i;
-			}
+			i = ft_mandel_loops(mand, p, mand->zoom);
 			if (i == mand->nmax)
 				ft_draw_pixel(mand->mlx, 0xFFFFFF, p);
 			else
@@ -81,5 +92,6 @@ void	ft_mandelbrot(t_mand *mand)
 		}
 		p.x++;
 	}
+	ft_free_color_tab(mand);
 	ft_flush_img(mand->mlx);
 }

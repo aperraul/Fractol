@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 17:23:53 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 12:15:07 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 	mand->btn = -1;
 	mand->nmax = 40;
 	mand->zoom = WIN_X / (mand->x2 - mand->x1);
-//	mand->zoom = 410;
 	mand->color_tab = NULL;
 	mand->zoomf = 0;
 	return (mand);

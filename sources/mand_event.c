@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/29 17:29:38 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 12:13:45 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,27 @@ static void		ft_calc_pos(t_mand *mand)
 	mand->pos.y += (mand->cursor.y * 2 - WIN_Y) / 2;
 }
 
-void	ft_zoom_mode(t_mand *mand)
+static void		ft_incrementator(t_mand *mand, int mode)
+{
+	if (mode == 1)
+	{
+		mand->zoom *= THEZOOM;
+		mand->pos.x *= THEZOOM;
+		mand->pos.y *= THEZOOM;
+		mand->nmax *= ITERATOR;
+		mand->zoomf++;
+	}
+	else if (mode == 2)
+	{
+		mand->zoom /= THEZOOM;
+		mand->pos.x /= THEZOOM;
+		mand->pos.y /= THEZOOM;
+		mand->nmax /= ITERATOR;
+		mand->zoomf--;
+	}
+}
+
+void			ft_zoom_mode(t_mand *mand)
 {
 	if (mand->key == 24 || mand->key == 27)
 	{
@@ -26,11 +46,7 @@ void	ft_zoom_mode(t_mand *mand)
 		{
 			if (mand->btn == 1 || mand->btn == 5)
 				ft_calc_pos(mand);
-			mand->zoom *= THEZOOM;
-			mand->pos.x *= THEZOOM;
-			mand->pos.y *= THEZOOM;
-			mand->nmax += ITERATOR;
-			mand->zoomf++;
+			ft_incrementator(mand, 1);
 		}
 		else
 		{
@@ -41,16 +57,12 @@ void	ft_zoom_mode(t_mand *mand)
 			}
 			if (mand->btn == 2 || mand->btn == 4)
 				ft_calc_pos(mand);
-			mand->zoom /= THEZOOM;
-			mand->pos.x /= THEZOOM;
-			mand->pos.y /= THEZOOM;
-			mand->nmax -= ITERATOR;
-			mand->zoomf--;
+			ft_incrementator(mand, 2);
 		}
 	}
 }
 
-int		ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
+int				ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
 {
 	mand->btn = btn;
 	mand->cursor = ft_make_pt(x, y);
@@ -64,7 +76,7 @@ int		ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
 	return (0);
 }
 
-int		ft_mand_event(int keycode, t_mand *mand)
+int				ft_mand_event(int keycode, t_mand *mand)
 {
 	if (keycode == 53)
 		exit(0);
