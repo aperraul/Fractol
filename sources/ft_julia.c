@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 16:25:14 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 17:20:39 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static int		ft_julia_loops(t_jul *jul, t_pt p, float z, int i)
 	double	z_r;
 	double	z_i;
 
-	c_r = jul->cursor.x / 1000;
-	c_i = jul->cursor.y / 1000;
+	c_r = jul->cursor_x / 1000;
+	c_i = jul->cursor_y / 1000;
 	z_r = (float)((float)(p.x + jul->pmin.x + jul->pos.x) / z) + (jul->x1);
 	z_i = (float)((float)(p.y + jul->pmin.y + jul->pos.y) / z) + (jul->y1);
 	i = -1;

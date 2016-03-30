@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 16:33:47 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 17:22:23 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void		ft_calc_pos(t_jul *jul)
 {
-	jul->pos.x += (jul->cursor.x * 2 - WIN_X) / 2;
-	jul->pos.y += (jul->cursor.y * 2 - WIN_Y) / 2;
+	jul->pos.x += (jul->cursor_x * 2 - WIN_X) / 2;
+	jul->pos.y += (jul->cursor_y * 2 - WIN_Y) / 2;
 }
 
 static void		ft_incrementator(t_jul *jul, int mode)
@@ -68,8 +68,8 @@ int				ft_jul_mouse(int x, int y, t_jul *jul)
 {
 	if (x >= 0 && x <= WIN_X && y >= 0 && y <= WIN_Y)
 	{
-		jul->cursor.x = (y * 2 - WIN_X);
-		jul->cursor.y = (y * 2 - WIN_Y);
+		jul->cursor_x = (x * 2 - WIN_X);
+		jul->cursor_y = (y * 2 - WIN_Y);
 		ft_julia(jul);;
 	}
 	return (1);

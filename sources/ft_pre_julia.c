@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 16:39:06 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 17:29:28 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ t_jul	*ft_jul_init(t_jul *jul, t_mlx *mlx)
 	jul->pos = ft_make_pt(0, 0);
 	jul->pmin = ft_make_pt(0, 0);
 	jul->pmax = ft_make_pt(0, 0);
-	jul->cursor = ft_make_pt(0, 0);
+	jul->cursor_x = 0;
+	jul->cursor_y = 0;
 	jul->x1 = -1;
 	jul->y1 = -1.2;
 	jul->x2 = 1;
 	jul->y2 = 1.2;
 	jul->btn = -1;
-	jul->nmax = 40;
+	jul->nmax = 80;
 	jul->zoom = (WIN_X / (jul->x2 - jul->x1));
 	jul->color_tab = NULL;
 	jul->zoomf = 0;

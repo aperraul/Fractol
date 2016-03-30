@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 16:30:40 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 17:20:36 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include "../Libdraw/libdraw.h"
 # include "../libmlx/X.h"
 
-# define WIN_X 2000
-# define WIN_Y 1300
+# define WIN_X 1000
+# define WIN_Y 750
 # define THEZOOM 1.5
 # define ITERATOR 1.12
 
@@ -56,7 +56,8 @@ typedef struct	s_jul
 	double		zoom;
 	int			nmax;
 	t_pt		pos;
-	t_pt		cursor;
+	float		cursor_x;
+	float		cursor_y;
 	t_pt		pmin;
 	t_pt		pmax;
 	t_pt		index;
