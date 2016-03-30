@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 13:59:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 11:51:01 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 14:08:46 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int		main(int argc, char **argv)
 {
-	t_fract		*fract;
+	char	*str;
 
 	if (argc == 2)
 	{
-		fract = NULL;
-		fract = ft_fract_init(fract, argv[1]);
-		ft_choose_fract(fract);
+		str = argv[1];
+		ft_choose_fract(str);
 	}
 	else
 		ft_putstr("nb arguments != 1");

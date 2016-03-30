@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 12:13:45 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 13:46:40 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ int				ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
 int				ft_mand_event(int keycode, t_mand *mand)
 {
 	if (keycode == 53)
+	{
+		ft_free_mand(mand);
 		exit(0);
+	}
 	mand->key = keycode;
 	ft_mandelbrot(mand);
 	return (0);

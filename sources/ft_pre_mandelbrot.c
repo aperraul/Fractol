@@ -6,16 +6,23 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 12:15:07 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 14:09:47 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
 
-t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
+void	ft_free_mand(t_mand *mand)
+{
+	if (mand->mlx)
+		ft_clear_mlx(mand->mlx);
+	ft_memdel((void **)&mand);
+}
+
+t_mand	*ft_mand_init(t_mand *mand, t_mlx *mlx)
 {
 	mand = (t_mand *)ft_memalloc(sizeof(t_mand));
-	mand->mlx = fract->mlx;
+	mand->mlx = mlx;
 	mand->pos = ft_make_pt(0, 0);
 	mand->pmin = ft_make_pt(0, 0);
 	mand->pmax = ft_make_pt(0, 0);
@@ -32,15 +39,17 @@ t_mand	*ft_mand_init(t_mand *mand, t_fract *fract)
 	return (mand);
 }
 
-void	ft_pre_mandelbrot(t_fract *fract)
+void	ft_pre_mandelbrot(char *title)
 {
 	t_mand	*mand;
+	t_mlx	*mlx;
 
+	mlx = NULL;
 	mand = NULL;
-	fract->mlx = ft_mlx_init(fract->mlx, WIN_X, WIN_Y, fract->title);
-	mand = ft_mand_init(mand, fract);
+	mlx = ft_mlx_init(mlx, WIN_X, WIN_Y, title);
+	mand = ft_mand_init(mand, mlx);
 	ft_mandelbrot(mand);
-	mlx_hook(fract->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, mand);
-	mlx_mouse_hook(fract->mlx->p_win, ft_mandel_mouse, mand);
-	mlx_loop(fract->mlx->p_mlx);
+	mlx_hook(mand->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, mand);
+	mlx_mouse_hook(mand->mlx->p_win, ft_mandel_mouse, mand);
+	mlx_loop(mand->mlx->p_mlx);
 }
