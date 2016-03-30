@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 14:11:14 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 16:02:53 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void			ft_mandelbrot(t_mand *mand)
 	int		i;
 
 	ft_reset_img(mand->mlx, 0);
-	ft_zoom_mode(mand);
+	ft_mand_zoom_mode(mand);
 	ft_image_init(mand);
 	p.x = 0;
 	mand->index.x = mand->pmin.x - 1;

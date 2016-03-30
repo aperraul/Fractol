@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 13:46:40 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/03/30 16:32:00 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ static void		ft_incrementator(t_mand *mand, int mode)
 		mand->pos.x /= THEZOOM;
 		mand->pos.y /= THEZOOM;
 		mand->nmax /= ITERATOR;
+		if (mand->nmax < 40)
+			mand->nmax = 40;
 		mand->zoomf--;
 	}
 }
 
-void			ft_zoom_mode(t_mand *mand)
+void			ft_mand_zoom_mode(t_mand *mand)
 {
 	if (mand->key == 24 || mand->key == 27)
 	{
