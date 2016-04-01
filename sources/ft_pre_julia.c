@@ -6,51 +6,44 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 17:29:28 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:27:49 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
 
-void	ft_free_jul(t_jul *jul)
+t_frac	*ft_jul_init(t_frac *frac, t_mlx *mlx)
 {
-	if (jul->mlx)
-		ft_clear_mlx(jul->mlx);
-	ft_memdel((void **)&jul);
-}
-
-t_jul	*ft_jul_init(t_jul *jul, t_mlx *mlx)
-{
-	jul = (t_jul *)ft_memalloc(sizeof(t_jul));
-	jul->mlx = mlx;
-	jul->pos = ft_make_pt(0, 0);
-	jul->pmin = ft_make_pt(0, 0);
-	jul->pmax = ft_make_pt(0, 0);
-	jul->cursor_x = 0;
-	jul->cursor_y = 0;
-	jul->x1 = -1;
-	jul->y1 = -1.2;
-	jul->x2 = 1;
-	jul->y2 = 1.2;
-	jul->btn = -1;
-	jul->nmax = 80;
-	jul->zoom = (WIN_X / (jul->x2 - jul->x1));
-	jul->color_tab = NULL;
-	jul->zoomf = 0;
-	return (jul);
+	frac = (t_frac *)ft_memalloc(sizeof(t_frac));
+	frac->mlx = mlx;
+	frac->pos = ft_make_pt(0, 0);
+	frac->pmin = ft_make_pt(0, 0);
+	frac->pmax = ft_make_pt(0, 0);
+	frac->cursor_x = 0;
+	frac->cursor_y = 0;
+	frac->x1 = -1;
+	frac->y1 = -1.2;
+	frac->x2 = 1;
+	frac->y2 = 1.2;
+	frac->btn = -1;
+	frac->nmax = 80;
+	frac->zoom = (WIN_X / (frac->x2 - frac->x1));
+	frac->color_tab = NULL;
+	frac->zoomf = 0;
+	return (frac);
 }
 
 void	ft_pre_julia(char *title)
 {
-	t_jul	*jul;
+	t_frac	*frac;
 	t_mlx	*mlx;
 
 	mlx = NULL;
-	jul = NULL;
+	frac = NULL;
 	mlx = ft_mlx_init(mlx, WIN_X, WIN_Y, title);
-	jul = ft_jul_init(jul, mlx);
-	ft_julia(jul);
-	mlx_hook(jul->mlx->p_win, KeyPress, KeyPressMask, ft_jul_event, jul);
-	mlx_hook(jul->mlx->p_win, MotionNotify, KeyPressMask, ft_jul_mouse, jul);
-	mlx_loop(jul->mlx->p_mlx);
+	frac = ft_jul_init(frac, mlx);
+	ft_julia(frac);
+	mlx_hook(frac->mlx->p_win, KeyPress, KeyPressMask, ft_jul_event, frac);
+	mlx_hook(frac->mlx->p_win, MotionNotify, KeyPressMask, ft_jul_mouse, frac);
+	mlx_loop(frac->mlx->p_mlx);
 }

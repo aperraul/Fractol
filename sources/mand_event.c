@@ -6,86 +6,34 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 16:32:00 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:56:35 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
 
-static void		ft_calc_pos(t_mand *mand)
+int				ft_mandel_mouse(int btn, int x, int y, t_frac *frac)
 {
-	mand->pos.x += (mand->cursor.x * 2 - WIN_X) / 2;
-	mand->pos.y += (mand->cursor.y * 2 - WIN_Y) / 2;
-}
-
-static void		ft_incrementator(t_mand *mand, int mode)
-{
-	if (mode == 1)
-	{
-		mand->zoom *= THEZOOM;
-		mand->pos.x *= THEZOOM;
-		mand->pos.y *= THEZOOM;
-		mand->nmax *= ITERATOR;
-		mand->zoomf++;
-	}
-	else if (mode == 2)
-	{
-		mand->zoom /= THEZOOM;
-		mand->pos.x /= THEZOOM;
-		mand->pos.y /= THEZOOM;
-		mand->nmax /= ITERATOR;
-		if (mand->nmax < 40)
-			mand->nmax = 40;
-		mand->zoomf--;
-	}
-}
-
-void			ft_mand_zoom_mode(t_mand *mand)
-{
-	if (mand->key == 24 || mand->key == 27)
-	{
-		if (mand->key == 24)
-		{
-			if (mand->btn == 1 || mand->btn == 5)
-				ft_calc_pos(mand);
-			ft_incrementator(mand, 1);
-		}
-		else
-		{
-			if (!mand->zoomf)
-			{
-				mand->pos = ft_make_pt(0, 0);
-				return ;
-			}
-			if (mand->btn == 2 || mand->btn == 4)
-				ft_calc_pos(mand);
-			ft_incrementator(mand, 2);
-		}
-	}
-}
-
-int				ft_mandel_mouse(int btn, int x, int y, t_mand *mand)
-{
-	mand->btn = btn;
-	mand->cursor = ft_make_pt(x, y);
+	frac->btn = btn;
+	frac->cursor = ft_make_pt(x, y);
 	if (btn == 1 || btn == 5)
-		mand->key = 24;
+		frac->key = 24;
 	else if (btn == 2 || btn == 4)
-		mand->key = 27;
-	ft_mandelbrot(mand);
-	mand->btn = -1;
-	mand->key = -1;
+		frac->key = 27;
+	ft_mandelbrot(frac);
+	frac->btn = -1;
+	frac->key = -1;
 	return (0);
 }
 
-int				ft_mand_event(int keycode, t_mand *mand)
+int				ft_mand_event(int keycode, t_frac *frac)
 {
 	if (keycode == 53)
 	{
-		ft_free_mand(mand);
+		ft_free_frac(frac);
 		exit(0);
 	}
-	mand->key = keycode;
-	ft_mandelbrot(mand);
+	frac->key = keycode;
+	ft_mandelbrot(frac);
 	return (0);
 }

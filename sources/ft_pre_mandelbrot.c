@@ -6,50 +6,43 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/30 14:09:47 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:57:49 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/header.h"
 
-void	ft_free_mand(t_mand *mand)
+t_frac	*ft_mand_init(t_frac *frac, t_mlx *mlx)
 {
-	if (mand->mlx)
-		ft_clear_mlx(mand->mlx);
-	ft_memdel((void **)&mand);
-}
-
-t_mand	*ft_mand_init(t_mand *mand, t_mlx *mlx)
-{
-	mand = (t_mand *)ft_memalloc(sizeof(t_mand));
-	mand->mlx = mlx;
-	mand->pos = ft_make_pt(0, 0);
-	mand->pmin = ft_make_pt(0, 0);
-	mand->pmax = ft_make_pt(0, 0);
-	mand->cursor = ft_make_pt(0, 0);
-	mand->x1 = -2.1;
-	mand->y1 = -1.2;
-	mand->x2 = 0.6;
-	mand->y2 = 1.2;
-	mand->btn = -1;
-	mand->nmax = 40;
-	mand->zoom = WIN_X / (mand->x2 - mand->x1);
-	mand->color_tab = NULL;
-	mand->zoomf = 0;
-	return (mand);
+	frac = (t_frac *)ft_memalloc(sizeof(t_frac));
+	frac->mlx = mlx;
+	frac->pos = ft_make_pt(0, 0);
+	frac->pmin = ft_make_pt(0, 0);
+	frac->pmax = ft_make_pt(0, 0);
+	frac->cursor = ft_make_pt(0, 0);
+	frac->x1 = -2.1;
+	frac->y1 = -1.2;
+	frac->x2 = 0.6;
+	frac->y2 = 1.2;
+	frac->btn = -1;
+	frac->nmax = 40;
+	frac->zoom = WIN_X / (frac->x2 - frac->x1);
+	frac->color_tab = NULL;
+	frac->zoomf = 0;
+	return (frac);
 }
 
 void	ft_pre_mandelbrot(char *title)
 {
-	t_mand	*mand;
+	t_frac	*frac;
 	t_mlx	*mlx;
 
 	mlx = NULL;
-	mand = NULL;
+	frac = NULL;
 	mlx = ft_mlx_init(mlx, WIN_X, WIN_Y, title);
-	mand = ft_mand_init(mand, mlx);
-	ft_mandelbrot(mand);
-	mlx_hook(mand->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, mand);
-	mlx_mouse_hook(mand->mlx->p_win, ft_mandel_mouse, mand);
-	mlx_loop(mand->mlx->p_mlx);
+	frac = ft_mand_init(frac, mlx);
+	ft_mandelbrot(frac);
+	mlx_hook(frac->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, frac);
+	mlx_mouse_hook(frac->mlx->p_win, ft_mandel_mouse, frac);
+	mlx_loop(frac->mlx->p_mlx);
 }

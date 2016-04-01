@@ -6,7 +6,7 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 16:10:30 by aperraul          #+#    #+#              #
-#    Updated: 2016/03/30 16:29:27 by aperraul         ###   ########.fr        #
+#    Updated: 2016/04/01 15:54:07 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC = ./sources/main.c \
 	  ./sources/ft_julia.c \
 	  ./sources/mand_event.c\
 	  ./sources/julia_event.c \
+	  ./sources/frac_tool.c \
+	  ./sources/ft_free_frac.c \
 
 OBJS = ./main.o \
 	   ./choose_fract.o \
@@ -29,6 +31,8 @@ OBJS = ./main.o \
 	   ./ft_julia.o \
 	   ./mand_event.o \
 	   ./julia_event.o \
+	   ./frac_tool.o \
+	   ./ft_free_frac.o \
 
 DRAW = ./Libdraw/draw.a
 
