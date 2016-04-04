@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 15:18:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/01 15:56:49 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 12:47:12 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,31 @@ void			ft_frac_zoom_mode(t_frac *frac)
 	}
 }
 
-void	ft_free_color_tab(t_frac *frac)
+void			ft_free_color_tab(t_frac *frac)
 {
 	if (frac->color_tab)
 		ft_memdel((void **)&frac->color_tab);
 }
 
-void	ft_frac_color(t_frac *frac)
+void			ft_frac_color(t_frac *frac)
 {
 	int		hexmin;
 	int		i;
 
+	if (frac->key == 78)
+		frac->t++;
+	if (frac->key == 69)
+		frac->t--;
+	if (frac->t < 1)
+		frac->t = 1;
 	frac->color_tab = (int *)ft_memalloc(sizeof(int) * frac->nmax);
-	hexmin = (0xFFFFFF / frac->nmax);
+	hexmin = (0xFFFFFF / frac->nmax + frac->t);
 	i = -1;
 	while (++i < frac->nmax)
-	frac->color_tab[i] = hexmin + (hexmin * i);
+		frac->color_tab[i] = hexmin + (hexmin * i);
 }
 
-void	ft_incrementator(t_frac *frac, int mode)
+void			ft_incrementator(t_frac *frac, int mode)
 {
 	if (mode == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/24 16:31:04 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 12:29:05 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
+
+typedef struct	s_ptd
+{
+	double		x;
+	double		y;
+}				t_ptd;
+
+typedef struct	s_ptf
+{
+	float		x;
+	float		y;
+}				t_ptf;
 
 typedef struct	s_ptll
 {

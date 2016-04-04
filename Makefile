@@ -6,7 +6,7 @@
 #    By: aperraul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 16:10:30 by aperraul          #+#    #+#              #
-#    Updated: 2016/04/01 15:54:07 by aperraul         ###   ########.fr        #
+#    Updated: 2016/04/02 16:15:40 by aperraul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,21 +16,27 @@ SRC = ./sources/main.c \
 	  ./sources/choose_fract.c \
 	  ./sources/ft_pre_mandelbrot.c \
 	  ./sources/ft_pre_julia.c \
+	  ./sources/ft_pre_newton.c \
 	  ./sources/ft_mandelbrot.c \
 	  ./sources/ft_julia.c \
+	  ./sources/ft_newton.c \
 	  ./sources/mand_event.c\
 	  ./sources/julia_event.c \
+	  ./sources/newt_event.c \
 	  ./sources/frac_tool.c \
 	  ./sources/ft_free_frac.c \
 
 OBJS = ./main.o \
 	   ./choose_fract.o \
 	   ./ft_pre_mandelbrot.o \
+	   ./ft_pre_newton.o \
 	   ./ft_pre_julia.o \
 	   ./ft_mandelbrot.o \
 	   ./ft_julia.o \
+	   ./ft_newton.o \
 	   ./mand_event.o \
 	   ./julia_event.o \
+	   ./newt_event.o \
 	   ./frac_tool.o \
 	   ./ft_free_frac.o \
 
