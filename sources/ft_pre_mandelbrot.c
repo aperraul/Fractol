@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/02 14:35:57 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 13:17:47 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,20 @@ void	ft_pre_mandelbrot(char *title)
 	ft_mandelbrot(frac);
 	mlx_hook(frac->mlx->p_win, KeyPress, KeyPressMask, ft_mand_event, frac);
 	mlx_mouse_hook(frac->mlx->p_win, ft_mandel_mouse, frac);
+	mlx_loop(frac->mlx->p_mlx);
+}
+
+void	ft_pre_mandelbs(char *title)
+{
+	t_frac	*frac;
+	t_mlx	*mlx;
+
+	mlx = NULL;
+	frac = NULL;
+	mlx = ft_mlx_init(mlx, WIN_X, WIN_Y, title);
+	frac = ft_mand_init(frac, mlx);
+	ft_mandelbs(frac);
+	mlx_hook(frac->mlx->p_win, KeyPress, KeyPressMask, ft_mandbs_event, frac);
+	mlx_mouse_hook(frac->mlx->p_win, ft_mandelbs_mouse, frac);
 	mlx_loop(frac->mlx->p_mlx);
 }

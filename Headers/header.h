@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/04 12:53:12 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 13:11:49 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ typedef struct	s_frac
 
 void			ft_choose_fract(char *title);
 void			ft_pre_mandelbrot(char *title);
+void			ft_pre_mandelbs(char *title);
 void			ft_pre_julia(char *title);
 void			ft_pre_newton(char *title);
 void			ft_mandelbrot(t_frac *frac);
+void			ft_mandelbs(t_frac *frac);
 void			ft_julia(t_frac *frac);
 void			ft_newton(t_frac *frac);
 void			ft_image_init(t_frac *frac);
@@ -57,9 +59,11 @@ t_frac			*ft_mand_init(t_frac *frac, t_mlx *mlx);
 t_frac			*ft_jul_init(t_frac *frac, t_mlx *mlx);
 t_frac			*ft_newt_init(t_frac *frac, t_mlx *mlx);
 int				ft_mand_event(int keycode, t_frac *mand);
+int				ft_mandbs_event(int keycode, t_frac *mand);
 int				ft_jul_event(int keycode, t_frac *frac);
 int				ft_newt_event(int keycode, t_frac *frac);
 int				ft_mandel_mouse(int btn, int x, int y, t_frac *frac);
+int				ft_mandelbs_mouse(int btn, int x, int y, t_frac *frac);
 int				ft_jul_mouse(int x, int y, t_frac *frac);
 int				ft_newton_mouse(int btn, int x, int y, t_frac *frac);
 void			ft_frac_zoom_mode(t_frac *frac);
