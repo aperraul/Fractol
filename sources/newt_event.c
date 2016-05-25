@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 15:12:26 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/04 12:01:42 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:18:50 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int				ft_newton_mouse(int btn, int x, int y, t_frac *frac)
 {
 	frac->btn = btn;
-	frac->cursor = ft_make_pt(x, y);
+	frac->cursor = ft_make_ptll(x, y);
 	if (btn == 1 || btn == 5)
 		frac->key = 24;
 	else if (btn == 2 || btn == 4)

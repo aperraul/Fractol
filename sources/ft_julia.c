@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/19 16:24:15 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/01 15:42:50 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:27:27 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int		ft_julia_loops(t_frac *frac, t_pt p, float z, int i)
 
 	c_r = frac->cursor_x / 1000;
 	c_i = frac->cursor_y / 1000;
-	z_r = (float)((float)(p.x + frac->pmin.x + frac->pos.x) / z) + (frac->x1);
-	z_i = (float)((float)(p.y + frac->pmin.y + frac->pos.y) / z) + (frac->y1);
+	z_r = (double)((double)(p.x + frac->pmin.x + frac->pos.x) / z) + (frac->x1);
+	z_i = (double)((double)(p.y + frac->pmin.y + frac->pos.y) / z) + (frac->y1);
 	i = -1;
 	while ((z_r * z_r) + (z_i * z_i) < 4 && ++i < frac->nmax)
 	{

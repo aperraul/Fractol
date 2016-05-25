@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/04 13:11:49 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:17:12 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ typedef struct	s_frac
 	double		cursor_x;
 	double		cursor_y;
 	int			nmax;
-	t_pt		pos;
+	t_ptll		pos;
 	int			t;
-	t_pt		cursor;
-	t_pt		pmin;
-	t_pt		pmax;
+	t_ptll		cursor;
+	t_ptll		pmin;
+	t_ptll		pmax;
 	t_pt		index;
 }				t_frac;
 

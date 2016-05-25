@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/04 12:44:34 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:18:22 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_frac			*ft_newt_init(t_frac *frac, t_mlx *mlx)
 {
 	frac = (t_frac *)ft_memalloc(sizeof(t_frac));
 	frac->mlx = mlx;
-	frac->pos = ft_make_pt(0, 0);
-	frac->pmin = ft_make_pt(0, 0);
-	frac->pmax = ft_make_pt(0, 0);
+	frac->pos = ft_make_ptll(0, 0);
+	frac->pmin = ft_make_ptll(0, 0);
+	frac->pmax = ft_make_ptll(0, 0);
 	frac->cursor_x = 0;
 	frac->cursor_y = 0;
 	frac->x1 = -1;

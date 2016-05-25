@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/05/10 12:11:48 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:14:24 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ t_mlx			*ft_mlx_init(t_mlx *mlx, int size_x, int size_y, char *title);
 void			ft_new_image(t_mlx *mlx);
 void			ft_draw_pixel(t_mlx *mlx, int color, t_pt pt);
 t_pt			ft_make_pt(int x, int y);
+t_ptll			ft_make_ptll(long long x, long long y);
 t_pt			ft_apply_matrix(t_3dpt pt, t_matrix m);
 t_3dpt			ft_make_3dpt(int x, int y, int z);
 t_3dpt			**ft_del_tab_pts(t_3dpt **tab);
