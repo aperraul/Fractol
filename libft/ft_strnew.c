@@ -6,12 +6,11 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 18:55:55 by aperraul          #+#    #+#             */
-/*   Updated: 2016/03/12 14:51:46 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:30:19 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strnew(size_t size)
 {

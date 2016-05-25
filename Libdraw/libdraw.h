@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/23 14:57:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/04/04 12:29:05 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/10 12:11:48 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct	s_line
 
 typedef struct	s_img
 {
+	int			loaded;
+	t_pt		size;
+	long int	octet;
 	char		*data;
 	void		*p_img;
 	int			width;
@@ -123,5 +126,7 @@ void			ft_flush_img(t_mlx *x);
 void			ft_reset_img(t_mlx *mlx, int color);
 t_rgb			ft_hexa_to_rgb(int hexa);
 int				ft_rgb_to_hexa(t_rgb rgb);
+int				ft_get_pixel_image(t_img *img, t_pt pt);
+int				ft_get_pixel(t_mlx *mlx, t_pt pt);
 
 #endif

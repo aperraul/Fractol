@@ -6,12 +6,11 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 18:52:37 by aperraul          #+#    #+#             */
-/*   Updated: 2015/11/29 15:23:34 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:30:28 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static int	ft_nbwords(char const *s, char c)
 {
