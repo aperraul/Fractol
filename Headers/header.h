@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:00:13 by aperraul          #+#    #+#             */
-/*   Updated: 2016/05/25 11:17:12 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/26 14:39:11 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int				ft_mandbs_event(int keycode, t_frac *mand);
 int				ft_jul_event(int keycode, t_frac *frac);
 int				ft_newt_event(int keycode, t_frac *frac);
 int				ft_mandel_mouse(int btn, int x, int y, t_frac *frac);
+int				ft_julia_mouse(int btn, int x, int y, t_frac *frac);
 int				ft_mandelbs_mouse(int btn, int x, int y, t_frac *frac);
 int				ft_jul_mouse(int x, int y, t_frac *frac);
 int				ft_newton_mouse(int btn, int x, int y, t_frac *frac);

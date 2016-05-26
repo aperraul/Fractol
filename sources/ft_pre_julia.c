@@ -6,7 +6,7 @@
 /*   By: aperraul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:16:31 by aperraul          #+#    #+#             */
-/*   Updated: 2016/05/25 11:18:09 by aperraul         ###   ########.fr       */
+/*   Updated: 2016/05/26 14:56:03 by aperraul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_frac	*ft_jul_init(t_frac *frac, t_mlx *mlx)
 	frac->x2 = 1;
 	frac->y2 = 1.2;
 	frac->btn = -1;
-	frac->nmax = 80;
+	frac->nmax = 30;
 	frac->zoom = (WIN_X / (frac->x2 - frac->x1));
 	frac->color_tab = NULL;
 	frac->zoomf = 0;
@@ -45,5 +45,6 @@ void	ft_pre_julia(char *title)
 	ft_julia(frac);
 	mlx_hook(frac->mlx->p_win, KeyPress, KeyPressMask, ft_jul_event, frac);
 	mlx_hook(frac->mlx->p_win, MotionNotify, KeyPressMask, ft_jul_mouse, frac);
+	mlx_mouse_hook(frac->mlx->p_win, ft_julia_mouse, frac);
 	mlx_loop(frac->mlx->p_mlx);
 }
